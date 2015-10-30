@@ -122,3 +122,41 @@ class Task extends Model
 ```
 
 We'll learn more about how to use Eloquent models as we add routes to our application. Of course, feel free to consult the [complete Eloquent documentation](http://laravel.com/docs/5.1/eloquent) for more information.
+
+<a name="routing"></a>
+## Routing
+
+<a name="stubbing-the-routes"></a>
+### Stubbing The Routes
+
+Next, we're ready to add a few routes to our application. Routes are used to point URLs to controllers or anonymous functions that should be executed when a user accesses a given page. By default, all Laravel routes are defined in the `app/Http/routes.php` file that is included in every new project.
+
+For this application, we know we will need at least three routes: a route to display a list of all of our tasks, a route to add new tasks, and a route to delete existing tasks. So, let's stub all of these routes in the `app/Http/routes.php` file:
+
+```php
+<?php
+
+use App\Task;
+use Illuminate\Http\Request;
+
+/**
+ * Display All Tasks
+ */
+Route::get('/', function () {
+	//
+});
+
+/**
+ * Add A New Task
+ */
+Route::post('task', function (Request $request) {
+	//
+});
+
+/**
+ * Delete An Existing Task
+ */
+Route::delete('task/{id}', function ($id) {
+	//
+});
+```
