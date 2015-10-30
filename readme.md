@@ -57,37 +57,39 @@ So, let's build a database table that will hold all of our tasks. The [Artisan C
 
 The migration will be placed in the `resources/database/migrations` directory of your project. As you may have noticed, the `make:migration` command already added an auto-incrementing ID and timestamps to the migration file. Let's edit this file and add an additional `string` column for the name of our tasks:
 
-	<?php
+```php
+<?php
 
-	use Illuminate\Database\Schema\Blueprint;
-	use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-	class CreateTasksTable extends Migration
-	{
-	    /**
-	     * Run the migrations.
-	     *
-	     * @return void
-	     */
-	    public function up()
-	    {
-	        Schema::create('tasks', function (Blueprint $table) {
-	            $table->increments('id');
-	            $table->string('name');
-	            $table->timestamps();
-	        });
-	    }
+class CreateTasksTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('tasks', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->timestamps();
+        });
+    }
 
-	    /**
-	     * Reverse the migrations.
-	     *
-	     * @return void
-	     */
-	    public function down()
-	    {
-	        Schema::drop('tasks');
-	    }
-	}
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('tasks');
+    }
+}
+```
 
 To run our migration, we will use the `migrate` Artisan command. If you are using Homestead, you should run this command from within your virtual machine, since your host machine will not have direct access to the database:
 
@@ -106,15 +108,17 @@ So, let's define a `Task` model that corresponds to our `tasks` database table w
 
 The model will be placed in the `app` directory of your application. By default, the model class is empty. We do not have to explicitly tell the Eloquent model which table it corresponds to because it will assume the database table is the plural form of the model name. So, in this case, the `Task` model is assumed to correspond with the `tasks` database table. Here is what our empty model should look like:
 
-	<?php
+```php
+<?php
 
-	namespace App;
+namespace App;
 
-	use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 
-	class Task extends Model
-	{
-		//
-	}
+class Task extends Model
+{
+	//
+}
+```
 
 We'll learn more about how to use Eloquent models as we add routes to our application. Of course, feel free to consult the [complete Eloquent documentation](http://laravel.com/docs/5.1/eloquent) for more information.
