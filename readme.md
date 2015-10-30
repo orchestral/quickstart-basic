@@ -94,3 +94,27 @@ To run our migration, we will use the `migrate` Artisan command. If you are usin
 	php artisan migrate
 
 This command will create all of our database tables. If you inspect the database tables using the database client of your choice, you should see a new `tasks` table which contains the columns defined in our migration. Next, we're ready to define an Eloquent ORM model for our tasks!
+
+<a name="eloquent-models"></a>
+### Eloquent Models
+
+[Eloquent](http://laravel.com/docs/5.1/eloquent) is Laravel's default ORM (object-relational mapper). Eloquent makes it painless to retrieve and store data in your database using clearly defined "models". Usually, each Eloquent model corresponds directly with a single database table.
+
+So, let's define a `Task` model that corresponds to our `tasks` database table we just created. Again, we can use an Artisan command to generate this model. In this case, we'll use the `make:model` command:
+
+	php artisan make:model Task
+
+The model will be placed in the `app` directory of your application. By default, the model class is empty. We do not have to explicitly tell the Eloquent model which table it corresponds to because it will assume the database table is the plural form of the model name. So, in this case, the `Task` model is assumed to correspond with the `tasks` database table. Here is what our empty model should look like:
+
+	<?php
+
+	namespace App;
+
+	use Illuminate\Database\Eloquent\Model;
+
+	class Task extends Model
+	{
+		//
+	}
+
+We'll learn more about how to use Eloquent models as we add routes to our application. Of course, feel free to consult the [complete Eloquent documentation](http://laravel.com/docs/5.1/eloquent) for more information.
