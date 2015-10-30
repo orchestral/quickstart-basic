@@ -1,8 +1,7 @@
 {
-    "name": "orchestra/platform",
-    "description": "Orchestra Platform",
-    "homepage": "http://orchestraplatform.com/docs/latest/",
-    "keywords": ["framework", "laravel", "orchestra-platform", "orchestral"],
+    "name": "orchestra/quickstart-basic",
+    "description": "Orchestra Platform QuickStart Basic",
+    "keywords": ["framework", "laravel", "orchestra-platform", "orchestral", "quickstart"],
     "license": "MIT",
     "type": "project",
     "require": {
